@@ -94,23 +94,27 @@ close:{[z;p](0!z)where get[first p]{not$[count[y]<=count x;0b;all x=count[x]#y]}
 / open node
 open:{[z;t;a;g;f;p;p_]delete N_ from `N_ xasc update N_:`$string n_ from 0!z,1!order[f]0!tree[t;a;g;f;p]p_}
 
-/ compute node
-tree:{[t;a;g;f;p;p_]key[z]!flip f!get[z:1!root[t;g;a;p_]block[t;g;a]/p except p_]f}
+/ compute node(s)
+tree:{[t;a;g;f;p;p_]tree_[f]1!root[t;g;a;p_]block[t;g;a]/p except p_}
+tree_:{[f;z]key[z]!flip f!get[z]f}
 
 / construct a block = node or leaf
 block:{[t;g;a;r;p]r,order[g]$[g~key p;leaf;node 1#g(`,g)?last key p][t;g;a]constraint p}
 
 / construct root block
 root:{[t;g;a;p_]$[0<count p_;();order[g]node_[g;`]root_[t;g]a]}
-root_:{[t;g;a]$[istable t;?[t;();0b;a];?[tablefor[t]g;enlist(=;`i;0);0b;k!k:key a]]}
+root_:{[t;g;a]$[istable t;rollup[t;();0b]a;?[tablefor[t]g;enlist(=;`i;0);0b;k!k:key a]]}
 
 / construct node block
-node:{[c;t;g;a;p]node_[g;c 0]$[istable t;get?[t;p;c!c;a];?[tablefor[t]g;selection[p;g]c 0;0b;k!k:key a]]}
+node:{[c;t;g;a;p]node_[g;c 0]$[istable t;get rollup[t;p;c!c]a;?[tablefor[t]g;selection[p;g]c 0;0b;k!k:key a]]}
 node_:{[g;c;t]![t;();0b;enlist[`n_]!2 enlist/$[null[c]|not count g;enlist();(1+g?c)#/:flip t g]]}
 
 / construct leaf block
 leaf:{[t;g;a;p]leaf_[g;`$string til count u]u:0!?[tableof t;p;0b;@[last each a;g;:;g]]}
 leaf_:{[g;i;t]![t;();0b;enlist[`n_]!2 enlist/$[count g;flip[flip[t]g],'i;flip enlist i]]}
+
+/ rollup with dummy
+rollup:{[t;w;g;a]delete D_ from?[t;w;g;((1#`D_)!enlist(count;first key a)),a]}
 
 / instruction -> constraint
 constraint:{[p]flip(=;key p;ensym each get p)}
