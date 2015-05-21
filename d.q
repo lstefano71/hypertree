@@ -22,8 +22,6 @@ t:([]
 
 t:update pnl:quantity*price-prev price by symbol from t
 
-z:()
-
 T:`t
 Z:`z
 / T:(`t;.af.get`:eg/t)
