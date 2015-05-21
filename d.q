@@ -92,6 +92,8 @@ F:`N`row`sector`industry`open`high`low`close`volume`pnl`mpl`lastsale`marketcap`i
 A[f]:avg,/:f:`open`high`low`close`pnl`mpl
 A[`volume]:(max;`volume)
 A[`row]:(last;`row)
+O.price:`USD
+O.quantity:`TEST
 L:0b
 
 / update

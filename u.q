@@ -13,7 +13,7 @@
 .js.obj:{(!). flip((`Z 		;.js.sub[get Z;J]R);
                    (`G 		;G);
                    (`H 		;H);
-                   (`F 		;key[Q]except G);
+                   (`F 		;key[Q]except G,I);
                    (`I 		;I);
                    (`Q 		;Q);
                    (`S 		;`cols`sorts!(key S;get S));
