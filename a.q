@@ -10,3 +10,10 @@
 
 .af.set:{[p]{(`$x,"/",string` sv y)set z}[string p]'[key d;get d:.af.trees`];}
 .af.get:{[p](` vs'k)!`$(string[p],"/"),/:string k:key p}
+
+.af.gen:{[n;d;e]flip(n?'d),e@\:n}
+
+\
+
+t:.af.gen[10;`A`B`C!(`a`b`c;`d`e;`f`g`h`i)]`f`g!2#{x?100.}
+ 
