@@ -7,16 +7,17 @@
 \l a.q
 \l d.q
 \l e.q
+\l l.q
 
 / connect to client
 .js.K:0Ni
-.z.po:{[w]`.js.K set w;neg[.js.K](`.js.ini;.js.obj[]);}
-.z.pc:{[w]`.js.K set 0Ni}
-.z.ps:{.js.snd .js.exe x}
+.z.po:{[w].js.K:w;neg[.js.K](`.js.ini;.js.obj`);}
+.z.pc:{[w].js.K:0Ni}
+.z.ps:{t:.z.z;.js.snd .js.exe x;.js.log[t]x}
 
 / utilities
 .js.snd:{neg[.js.K](`.js.exe;x)}
-.js.obj:{{x!get each x}`$'"AFGHIJLNOPQRSTUVWXYZ"}
+.js.obj:{{x!get each x}Z,`$'"AFGHIJLOPQRSTUVWXYZ"}
 .js.ret:{(x;.js.obj[])}
 .js.upd:{if[not null .js.K;Z set();P[1]:.ht.P 1;.js.snd .js.set()]}
 
