@@ -67,8 +67,7 @@ y:{[z;t;a;g;f;p;p_]$[count[p]>count p_;open[z;t;a;g;f;p]p_;close[z]p_ except p]}
 x:{[t;a;g;w]
  h:{y,x except y}[g]g[0],g 1+count w 1;f:1#c:w[0]0;u:?[$[istable t;t;tablefor[t]g];w 1;0b;()];
  z:cons[();u;(opento[u;h]h 1;P 1);a;()!();(h;f);0b](();();());
- z:`n_ xcol 0!pivot[z;c]. 2#h;
- z[`n_]:enlist[()],flip enlist 1_z`n_;
+ z:`n_ xcol 0!pivot[z;c]. 2#h;z[`n_]:enlist[()],flip enlist 1_z`n_;
  z[0;1_cols z]:xkey[`g_;cons[();u;P;a;()!();(1_h;f);0b;(();();())]][flip enlist 1_cols z;c];
  z}
 
@@ -174,20 +173,28 @@ refs:flatten ref@
 / cast <- type
 qtype:{C _ exec c!t from meta x}
 
-/ sort
+/ treetable sort
 sort:{[t;g;c;o]
- f:{x$[0=t:type y;::;t in 10 11h;lower;abs]y};
- s:(`a`d`A`D!(iasc;idesc;f iasc;f idesc))o;
- if[0=count g;:raze t msort[0!t;c;s]each 0 1_til count t];
- i:clist[parents n:exec n_ from t]except enlist();
- j:msort[0!t;c;s]each i;
- t q?pmesh over(q:`$string n)j}
+ if[`g_~first -1_c;c:`G_,1_c;t:update G_:?[l_>1;`;g_]from t];
+ n:reverse exec i by L_ from s:dsort[t;g;c;o]where L_>0;
+ delete G_ from t 0,raze$[1=count n;s[`I_]n;merge[s;g]/[();key n;get n]]}
 
-/ parent-vector -> child-list
-clist:{[p]@[(2+max p)#enlist();first[p],1+1_p;,;til count p]}
+/ column sort
+csort:{[c;o]@[flip(@;abs;c;c);i;:;c i:where o in`a`d]}
 
-/ nested multi-sort
-msort:{[t;c;o;i]i{x y z x}/[::;o;t[i]c]}
+/ row sort
+rsort:{[t;c;o]{x y z x}/[::;reverse o;?[t;();();enlist,reverse get c]]}
 
-/ mesh nest of paths
-pmesh:{i:1+x?-1_first y;(i#x),y,i _ x}
+/ expression sort
+esort:{[c]$[1=count c;first c;(flip;(!;enlist key c;enlist,get c))]}
+
+/ data sort
+dsort:{[t;g;c;o]
+ a:!/[g,/:(`I_`L_;`i`l_)];c:c!csort[c]o;s:1=count distinct o:(<:;>:)o in`d`D;
+ $[s;?[t;();0b;a;0W;(first o;esort c)];?[t;();0b;a]rsort[t;c]o]}
+
+/ sort-level
+level:{[s;g;n;i]c:((m:n&count g)#g),`I_;(delete I_ from t)!flip enlist(t:(c#s)i)`I_}
+
+/ merge sort-levels
+merge:{[s;g;x;n;i]v:level[s;g;n;i];$[count x;@[v;(keys v)#key x;,;get x];v]}
