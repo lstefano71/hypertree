@@ -420,6 +420,8 @@ Hypertree:
 
 	The one-process version single-threads q updates and Hypergrid interaction.
 
+	Start [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
+
 Client-Server:
 
 	Start hypertree client (default port 12345):
@@ -437,6 +439,8 @@ Client-Server:
 	The two-process version decouples q update and Hypergrid interaction.
 
 	By default, the both client and server start on the same host.
+
+	Start [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
 
 
 Scripts
