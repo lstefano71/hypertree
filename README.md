@@ -411,7 +411,7 @@ Static rollups:
 Use
 ---
 
-Hypertree:
+Single process:
 
 	Start hypertree process (default port 12345, \t = 0):
 
@@ -420,9 +420,7 @@ Hypertree:
 
 	The one-process version single-threads q updates and Hypergrid interaction.
 
-	Start [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
-
-Client-Server:
+Two-process:
 
 	Start hypertree client (default port 12345):
 
@@ -440,7 +438,8 @@ Client-Server:
 
 	By default, the both client and server start on the same host.
 
-	Start [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
+
+After starting either the single process or two-process version of Hypergrid, start [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
 
 
 Scripts
