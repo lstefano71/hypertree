@@ -438,7 +438,6 @@ Two-process:
 
 	By default, the both client and server start on the same host.
 
-
 After starting either the single process or two-process version of Hypergrid, start [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
 
 
