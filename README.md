@@ -224,9 +224,13 @@ A: Rollups
 
 	A[`f`g`h]:((sum;`a);(avg;`a);(max;`a))
 
+E: Universe of columns
+
+	E::distinct key[A],cols first T
+
 F: Visible columns in order
 
-	F::distinct[key[A],cols first T]except G,I
+	F::E except G,I
 
 G: Grouping columns
 
@@ -247,7 +251,7 @@ H: Groupable columns
 
 I: Invisible columns
 
-	I::cols[first T]except F,G
+	I::E except G,F
 
 	F, G, and I can be overridden s.t. (F,G,I) is a (proper) subset of cols T.
 

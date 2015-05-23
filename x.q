@@ -3,8 +3,11 @@
 / rollup expressions
 A:()!()
 
+/ universe of columns
+E::distinct key[A],cols first T
+
 / visible columns (in order)
-F::distinct[key[A],cols first T]except G,I
+F::E except G,I
 
 / grouping columns
 G:()
@@ -13,7 +16,7 @@ G:()
 H::exec c from meta first T where t in"bhijspmdznuvt"
 
 / invisible columns
-I::cols[first T]except F,G
+I::E except G,F
 
 / json infinity check
 J:0b
