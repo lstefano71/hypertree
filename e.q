@@ -1,9 +1,9 @@
 // js events
 
 .js.row:{[d]if[Y;if[count G;if[0=count W 0;if[0<count n:.js.cnv[G;Q]d`row;if[count[get Z]>r:Z[`n_]?n;`P set .ht.row[not Z[`o_]r;P;G]n;:.js.set d]]]]]}
-.js.col:{[d]if[X;if[count G;`P set .ht.P;(Z,`W`G)set'.ht.col[get Z;W;G;Q]d`col;:.js.set d]]}
-.js.cell:{[d]if[X;if[count G;`P set .ht.P;(Z,`W`G)set'.ht.cell[get Z;W;G;Q]. d`col`row;:.js.set d]]}
-.js.sorts:{[d]`S set d[`cols]!d`sorts;$[0=count S;.js.set d;[Z set .ht.sort[count G;get Z;key S]get S;.js.ret d]]}
+.js.col:{[d]if[X;if[count G;`P set .ht.P;`S set()!();(Z,`W`G)set'.ht.col[get Z;W;G;Q]d`col;:.js.set d]]}
+.js.cell:{[d]if[X;if[count G;`P set .ht.P;`S set()!();(Z,`W`G)set'.ht.cell[get Z;W;G;Q]. d`col`row;:.js.set d]]}
+.js.sorts:{[d]`S set d[`cols]!d`sorts;$[0=count S;.js.set d;[Z set .ht.sort[get Z;$[count W 0;();G];key S]get S;:.js.ret d]]}
 .js.groups:{[d]if[V&0=count W 0;`F`G set'.js.sym d`visible`groups;`P set .ht.vpaths[P]G;Z set();.js.set d]}
 .js.get:{[d]`R set`start`end!"j"$d`start`end;.js.ret d}
 
