@@ -382,9 +382,9 @@ Calculation
 
 Hypertree calculates rollups on every Y-axis drilldown event, and on every X- or XY-pivot event, and on every update to the underlying data.
 
-Our rollup algorithm performs well in the case of small tables (a few million records), and for tables with not too many rollups and/or not too many exposed subnodes.
+Our rollup algorithm performs well in the case of medium-sized tables (a few million records), and for tables with not too many rollups and/or not too many exposed subnodes.
 
-For static data, and especially for large tables which update off-line, a different approach is required.
+For static data, and especially for very large tables which update off-line, a different approach is required.
 
 Dynamic rollups:
 
