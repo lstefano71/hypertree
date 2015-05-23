@@ -4,7 +4,7 @@
 A:()!()
 
 / visible columns (in order)
-F::cols[first T]except G
+F::distinct[key[A],cols first T]except G,I
 
 / grouping columns
 G:()
