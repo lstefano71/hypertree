@@ -23,9 +23,9 @@ Concepts
 
 Hypertree is a q server which adds tree- and pivot-table calculation to [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
 
-An earlier version of this algorithm (bottom-up aggregation) is described in the [the Vector paper](http://archive.vector.org.uk/art10500340).
+An earlier version of this algorithm (bottom-up aggregation) is described [here](http://archive.vector.org.uk/art10500340).
 
-Here is a brief overview:
+What follows is a brief overview:
 
 Suppose our tree has the following structure:
 
