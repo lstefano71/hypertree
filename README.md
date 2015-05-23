@@ -23,7 +23,9 @@ Concepts
 
 Hypertree is a q server which adds tree- and pivot-table calculation to [Hypergrid](http://openfin.github.io/fin-hypergrid/components/fin-hypergrid/demo.html?tab=4).
 
-Aggregation ("rollup") is bottom-up, an earlier version of which is described in the [original paper on treetables](http://archive.vector.org.uk/art10500340).
+An earlier version of this algorithm (bottom-up aggregation) is described in the [the Vector paper](http://archive.vector.org.uk/art10500340).
+
+Here is a brief overview:
 
 Suppose our tree has the following structure:
 
