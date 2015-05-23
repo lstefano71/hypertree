@@ -175,18 +175,13 @@ qtype:{C _ exec c!t from meta x}
 
 / treetable sort
 sort:{[t;g;c;o]
- if[0=count g;:t[0],msort[1_t;c]sorts o];
+ if[0=count g;:t[0],msort[1_t;c]o];
  if[`g_~first -1_c;c:`G_,1_c;t:update G_:?[l_>1;`;g_]from t];
  n:reverse exec i by L_ from s:dsort[t;g;c;o]where L_>0;
  delete G_ from t 0,raze$[1=count n;s[`I_]n;merge[s;g]/[();key n;get n]]}
 
 / multi-column sort
-msort:{[t;c;o]t{x y z x}/[::;o;t c]}
-
-/ sort objects
-sorts:{[o]
- f:{x$[0=t:type y;::;t in 10 11h;lower;abs]y};
- (`a`d`A`D!(iasc;idesc;f iasc;f idesc))o}
+msort:{[t;c;o]t{x y z x}/[::;(`a`d`A`D!(iasc;idesc;iasc abs@;idesc abs@))o;t c]}
 
 / column sort
 csort:{[c;o]@[flip(@;abs;c;c);i;:;c i:where o in`a`d]}

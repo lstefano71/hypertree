@@ -31,7 +31,7 @@ A[`price]:(avg;`price)
 A[`wprice]:(wavg;`quantity;`price)
 A[`pnl]:(avg;`pnl)
 A[`N]:(count;`price)
-/ A[`symbol]:(.ht.seq;`symbol)
+A[`symbol]:(.ht.seq;`symbol)
 
 / update
 .z.ts:{
