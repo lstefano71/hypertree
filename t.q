@@ -180,7 +180,7 @@ sort:{[t;g;c;o]
  n:reverse exec i by L_ from s:dsort[t;g;c;o]where L_>0;
  delete G_ from t 0,raze$[1=count n;s[`I_]n;merge[s;g]/[();key n;get n]]}
 
-/ multi-column sort
+/ multi-column non-hierarchical sort (pivot table, no grouping)
 msort:{[t;c;o]t{x y z x}/[::;(`a`d`A`D!(iasc;idesc;iasc abs@;idesc abs@))o;t c]}
 
 / column sort
