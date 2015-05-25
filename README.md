@@ -185,7 +185,7 @@ Hypertree understands a limited number of user-initiated events:
 				table on the column-value.
 
 	sorts:		multi-sort the table ascending, descending, ascending-absolute-value, 
-	descending-absolute-value.
+				descending-absolute-value.
 
 	get:		send a subtable of the current state of the table to Hypergrid.
 
