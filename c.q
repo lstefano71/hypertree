@@ -3,7 +3,7 @@
 \p 12345
 \t 2000
 
-\l u.q
+\l j.q
 \l l.q
 
 / connect to server

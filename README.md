@@ -460,7 +460,7 @@ Scripts
 	d.q             data and parameter definition
 	e.q             hypergrid events
 	t.q             hypertree calculation
-	u.q             javascript interaction utilities
+	j.q             javascript interaction utilities
 	x.q             hypertree parameters
 	a.q             auxilliary functions
 	l.q             console logging functions
