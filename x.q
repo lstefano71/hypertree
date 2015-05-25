@@ -37,7 +37,7 @@ Q::.ht.qtype get Z
 R:`start`end!0 60
 
 / sorts = cols!(..{`a`d`A`D}..)
-S:()!()
+S:.ht.S
 
 / table
 T:`
@@ -49,7 +49,7 @@ U:0b
 V:1b
 
 / pivot state = ((z-col;Q);selects;groups)
-W:(();();())
+W:.ht.W
 
 / allow X-axis drilldown (pivot)
 X:1b

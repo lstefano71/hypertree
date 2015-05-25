@@ -35,7 +35,7 @@ unctl:{[z]$[count z;1!![z;();0b;1_C];()]}
 / col = pivot down/up
 col:{[z;w;g;q;c]zcol[z].$[null c;(w;g);(count[g]=2+count w 1)|c=`g_;gcol[w]g;wcol[w;g;q]c]}
 wcol:{[w;g;q;c]$[0=count w 0;(((c;q);w 1;());g);((w 0;wsel[g;c;w 1]w[0;1];w[2],enlist g);g)]}
-gcol:{[w;g]$[count w 1;(0 -1 -1_'w;last w 2);((();();());g)]}
+gcol:{[w;g]$[count w 1;(0 -1 -1_'w;last w 2);(W;g)]}
 wsel:{[g;c;s;q]$[last[g]=k:g 1+count s;s;s,ceq[k;c]q k]}
 zcol:{[z;w;g]($[count w 1;z;()];w;g)}
 
@@ -66,9 +66,9 @@ y:{[z;t;a;g;f;p;p_]$[count[p]>count p_;open[z;t;a;g;f;p]p_;close[z]p_ except p]}
 / open/close X axis (pivot)
 x:{[t;a;g;w]
  h:{y,x except y}[g]g[0],g 1+count w 1;f:1#c:w[0]0;u:?[$[istable t;t;tablefor[t]g];w 1;0b;()];
- z:cons[();u;(opento[u;h]h 1;P 1);a;()!();(h;f);0b](();();());
+ z:cons[();u;(opento[u;h]h 1;P 1);a;S;(h;f);0b]W;
  z:`n_ xcol 0!pivot[z;c]. 2#h;z[`n_]:enlist[()],flip enlist 1_z`n_;
- z[0;1_cols z]:xkey[`g_;cons[();u;P;a;()!();(1_h;f);0b;(();();())]][flip enlist 1_cols z;c];
+ z[0;1_cols z]:xkey[`g_;cons[();u;P;a;S;(1_h;f);0b]W][flip enlist 1_cols z;c];
  z}
 
 / pivot (h/t: nick psaris)
@@ -130,6 +130,12 @@ I:enlist(0#`)!()
 / instruction state
 P:(([n:I]v:enlist 1b);([n:()]v:til 0))
 
+/ sort dictionary
+S:()!()
+
+/ pivot state
+W:(();();())
+
 / visible paths
 visible:{[p]n where all each(exec v from p)(reverse q scan)each til count q:parents n:exec n from p}
 
@@ -144,6 +150,9 @@ opento:{[t;g;h]inst distinct I,raze t to/:(1+til count k)#\:k:(g?h)#g}
 
 / instruction
 to:{I,y!/:flip distinct x y}
+
+/ expand to leaves-1
+expand:{[t;g](opento[$[istable t;t;tablefor[t]g];g]last g;P 1)}
 
 / instruction table
 inst:{[m]([n:m]v:count[m]#1b)}

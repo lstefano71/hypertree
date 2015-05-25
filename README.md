@@ -172,26 +172,33 @@ Events
 
 Hypertree understands a limited number of user-initiated events:
 
-	row:	click on an element in the Hierarchy column to expand from or contract to that row.
+	row:		click on an element in the Hierarchy column to expand from or contract to 
+				that row.
 
 <img src="images/row.jpg">
 
-	col:	click on a column to pivot the table.
+	col:		click on a column to pivot the table.
 
 <img src="images/col.jpg">
 
-	cell:	click on a cell to restrict the table to the row-value and pivot the resulting table
-	on the column-value.
+	cell:		click on a cell to restrict the table to the row-value and pivot the resulting
+				table on the column-value.
 
-	sorts:	multi-sort the table ascending, descending, ascending-absolute-value, 
+	sorts:		multi-sort the table ascending, descending, ascending-absolute-value, 
 	descending-absolute-value.
 
-	get:	send a subtable of the current state of the table to Hypergrid.
+	get:		send a subtable of the current state of the table to Hypergrid.
 
-	groups:	press the alt/option key to summon a window which allows drag-and-drop regrouping of
-	the table, and to select which columns of the table are visible.
+	groups:		press the alt/option key to summon a window which allows drag-and-drop 
+				regrouping of the table, and to select which columns of the table are visible.
 
 <img src="images/option.jpg">
+
+	reset:		clears sorts, expansions, pivots, &c.
+
+	expand:		expands the tree to the level just above the leaves (i.e. the last group).
+
+	collapse:	collapses the tree to the first level (i.e. the first group).
 
 Hypertree also supports update.  For example, if the underlying table is t:
 
