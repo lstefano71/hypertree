@@ -330,7 +330,7 @@ R: Rows -> Hypergrid (scrolling)
 
 S: Sorts = cols!(..{`a`d`A`D}..)
 
-	S:()!()
+	S:.ht.S = ()!()
 
 	For example:  S:`foo`bar!`D`a for ascending bar within descending-absolute foo.
 
@@ -362,7 +362,7 @@ V: Pop up grouping/visibility panel
 
 W: Pivot state = ((z-col;Q);selects;groups)
 
-	W:(();();())
+	W:.ht.W = (();();())
 
 	Pivot and Y-Axis drill-down operations are mutually exclusive.
 
