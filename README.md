@@ -141,7 +141,9 @@ Structure
 
 Given table T (the underlying table) + Hypertree Parameters (see below) .ht.cons produces Z, the Hypertree table.
 
-Column names A_ through Z_ and a_ through z_ are reserved for Hypertree use.
+Column names a_ through z_ are reserved for Hypertree use.
+
+All other column names ending in _ are virtual rollups:  the leaves are nulled in the display.
 
 The Hypertree table structure is encoded in the following six columns:
 
@@ -165,6 +167,8 @@ The Hypertree table structure is encoded in the following six columns:
 	o_:  open?
 	p_:  parent vector
 	g_:  last each n_ (hierarchy column)
+
+z_ is used internally as a dummy column.
 
 
 Events
@@ -232,6 +236,9 @@ A: Rollups
 	Multiple rollups can be defined for a single column:
 
 	A[`f`g`h]:((sum;`a);(avg;`a);(max;`a))
+
+	Rollup functions map lists to atoms.  If the type of column c is t, then the
+	type of the rollup of c must be -t.
 
 E: Universe of columns
 

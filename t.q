@@ -55,10 +55,10 @@ xy:{[z;t;p;a;s;c;l;w]
 
 / total + table
 tt:{[t;a]
- t:update G_:count[t]#0 from t;a[`G_]:(first;`G_);
- s:1#y[();t;a;1#`G_;cols t]. visible each P;
+ t:update z_:count[t]#0 from t;a[`z_]:(first;`z_);
+ s:1#y[();t;a;1#`z_;cols t]. visible each P;
  r:`n_ xcols update n_:flip enlist`$string til count t from t;
- delete G_ from s,r}
+ delete z_ from s,r}
 
 / open/close Y axis
 y:{[z;t;a;g;f;p;p_]$[count[p]>count p_;open[z;t;a;g;f;p]p_;close[z]p_ except p]}
@@ -91,7 +91,7 @@ children:{[n]@[where each p=/:til count p:parents n;0;1_]}
 close:{[z;p](0!z)where get[first p]{not$[count[y]<=count x;0b;all x=count[x]#y]}/:exec n_ from z}
 
 / open node
-open:{[z;t;a;g;f;p;p_]delete N_ from `N_ xasc update N_:`$string n_ from 0!z,1!order[f]0!tree[t;a;g;f;p]p_}
+open:{[z;t;a;g;f;p;p_]delete z_ from `z_ xasc update z_:`$string n_ from 0!z,1!order[f]0!tree[t;a;g;f;p]p_}
 
 / compute node(s)
 tree:{[t;a;g;f;p;p_]tree_[f]1!root[t;g;a;p_]block[t;g;a]/p except p_}
@@ -110,10 +110,13 @@ node_:{[g;c;t]![t;();0b;enlist[`n_]!2 enlist/$[null[c]|not count g;enlist();(1+g
 
 / construct leaf block
 leaf:{[t;g;a;p]leaf_[g;`$string til count u]u:0!?[tableof t;p;0b;@[last each a;g;:;g]]}
-leaf_:{[g;i;t]![t;();0b;enlist[`n_]!2 enlist/$[count g;flip[flip[t]g],'i;flip enlist i]]}
+leaf_:{[g;i;t]unrollup[cols t]![t;();0b;enlist[`n_]!2 enlist/$[count g;flip[flip[t]g],'i;flip enlist i]]}
+
+/ null leaves of virtual rollups
+unrollup:{[c;t]![t;();0b;c!(first 0#;)each c@:where"_"=last each string c]}
 
 / rollup with dummy
-rollup:{[t;w;g;a]delete D_ from?[t;w;g;((1#`D_)!enlist(count;first key a)),a]}
+rollup:{[t;w;g;a]delete z_ from?[t;w;g;((1#`z_)!enlist(count;first key a)),a]}
 
 / instruction -> constraint
 constraint:{[p]flip(=;key p;ensym each get p)}
@@ -185,9 +188,9 @@ qtype:{C _ exec c!t from meta x}
 / treetable sort
 sort:{[t;g;c;o]
  if[0=count g;:t[0],msort[1_t;c]o];
- if[`g_~first -1_c;c:`G_,1_c;t:update G_:?[l_>1;`;g_]from t];
+ if[`g_~first -1_c;c:`z_,1_c;t:update z_:?[l_>1;`;g_]from t];
  n:reverse exec i by L_ from s:dsort[t;g;c;o]where L_>0;
- delete G_ from t 0,raze$[1=count n;s[`I_]n;merge[s;g]/[();key n;get n]]}
+ delete z_ from t 0,raze$[1=count n;s[`I_]n;merge[s;g]/[();key n;get n]]}
 
 / multi-column non-hierarchical sort (pivot table, no grouping)
 msort:{[t;c;o]t{x y z x}/[::;(`a`d`A`D!(iasc;idesc;iasc abs@;idesc abs@))o;t c]}

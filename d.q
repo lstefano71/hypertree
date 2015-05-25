@@ -26,11 +26,11 @@ T:`t
 Z:`z
 / T:(`t;.af.get`:eg/t)
 G:`trader`sector`strategy /`symbol`date
-F:`N`pnl`wprice`price`quantity`date`time`symbol`date
+F:`N_`pnl`wprice`price`quantity`date`time`symbol`date
 A[`price]:(avg;`price)
 A[`wprice]:(wavg;`quantity;`price)
 A[`pnl]:(avg;`pnl)
-A[`N]:(count;`price)
+A[`N_]:(count;`quantity)
 A[`symbol]:(.ht.seq;`symbol)
 
 / update
