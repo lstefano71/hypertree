@@ -194,11 +194,11 @@ Hypertree understands a limited number of user-initiated events:
 
 <img src="images/option.jpg">
 
-	reset:		clears sorts, expansions, pivots, &c.
+	reset:		clear sorts, expansions, pivots, &c.
 
-	expand:		expands the tree to the level just above the leaves (i.e. the last group).
+	expand:		expand the tree to the level just above the leaves (i.e. the last group).
 
-	collapse:	collapses the tree to the first level (i.e. the first group).
+	collapse:	collapse the tree to the first level (i.e. the first group).
 
 Hypertree also supports update.  For example, if the underlying table is t:
 
