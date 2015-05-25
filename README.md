@@ -463,6 +463,7 @@ Scripts
 	u.q             javascript interaction utilities
 	x.q             hypertree parameters
 	a.q             auxilliary functions
+	l.q             console logging functions
 
 	h.q             standalone hypertree process
 
